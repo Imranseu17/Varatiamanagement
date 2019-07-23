@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="signUp"
+            type="com.example.varatiamanagement.activity.SignUPActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bgsign"
+        android:orientation="vertical"
+        tools:context="com.example.nutritionapplication.activity.
+        SignUpActivity">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp"
+            android:lineSpacingExtra="6dp"
+            android:text="Sign Up"
+            android:textColor="#FFF"
+            android:textSize="42sp"/>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="288dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bginput"
+                android:hint="Complete Name"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:inputType="text"
+                android:textColorHint="#87ffffff"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="288dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bginput"
+                android:hint="Email Address"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#87ffffff"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="288dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bginput"
+                android:hint="Password"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#87ffffff"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="288dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bginput"
+                android:hint="Address"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:inputType="text"
+                android:textColorHint="#87ffffff"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/nID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="288dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bginput"
+                android:hint="NID"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:inputType="text"
+                android:textColorHint="#87ffffff"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="288dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bginput"
+                android:hint="Phone Number"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:inputType="number"
+                android:textColorHint="#87ffffff"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+        <Button
+            android:id="@+id/btnjoin"
+            android:layout_width="168dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bgbtn"
+            android:text="Join Today"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+
+</layout>
