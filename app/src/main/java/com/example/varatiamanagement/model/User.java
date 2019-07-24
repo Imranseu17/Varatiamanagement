@@ -1,5 +1,6 @@
 package com.example.varatiamanagement.model;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
@@ -11,18 +12,25 @@ public class User implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    private int id;
+    @ColumnInfo(name = "id")
+    private int userId;
 
+    @ColumnInfo(name = "name")
     private String name;
 
+    @ColumnInfo(name = "email")
     private String email;
 
+    @ColumnInfo(name = "address")
     private String address;
 
+    @ColumnInfo(name = "nid")
     private String nid;
 
+    @ColumnInfo(name = "phoneNumber")
     private String phoneNumber;
 
+    @ColumnInfo(name = "password")
     private String password;
 
 
@@ -35,12 +43,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -90,7 +98,7 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "userId=" + userId +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
