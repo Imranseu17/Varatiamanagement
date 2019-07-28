@@ -8,4 +8,17 @@
     <string name="err_phoneNumber"> Phone Number field is required </string>
     <string name="valid_email"> Write Valid email Address </string>
     <string name="valid_password"> Write valid password </string>
+    <string name="warning">Warning</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="err_service_card">It is not Service Card</string>
+    <string name="err_card_read_failed">Card read failed! Please try again</string>
+    <string name="err_card_not_valid">This card is invalid for this operation</string>
+    <string name="info_want_to_logout">Are you sure you want to log out ?</string>
+    <string name="cancel">Cancel</string>
+    <string name="warning_delete_card">Are you sure you want to Delete card?</string>
+    <string name="delete">Delete</string>
+    <string name="no">No</string>
+    <string name="warning_exit_app">Are you sure you want to exit the app</string>
+    <string name="preference_file_key" translatable="false">preference_file_key</string>
 </resources>
