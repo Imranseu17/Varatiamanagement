@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         activityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         progressDialog = new ProgressDialog(this);
@@ -73,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                                             .trim());
                             if(user!=null){
                                 startActivity(new Intent(LoginActivity.this,
-                                        HomeActivity.class));
+                                        OwnerHomeActivity.class));
                                 finish();
                                 activityLoginBinding.inputLayoutPhone.getEditText().setText("");
                                 activityLoginBinding.inputLayoutPassword.getEditText().setText("");

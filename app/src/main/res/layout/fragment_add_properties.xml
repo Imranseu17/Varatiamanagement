@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="addProperties"
+            type="com.example.varatiamanagement.fragments.AddProperties" />
+
+    </data>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.AddProperties"
+    android:background="@drawable/bgsign">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bginput"
+            android:hint="Complete Name"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:inputType="text"
+            android:textColorHint="#87ffffff"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+
+            android:layout_width="288dp"
+            android:layout_height="100dp"
+            android:hint="Description"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:inputType="text"
+            android:textColorHint="#87ffffff"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+
+            android:layout_width="288dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bginput"
+            android:hint="Address"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:inputType="text"
+            android:textColorHint="#87ffffff"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"></Spinner>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button_add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_add"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="60dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>
+
+</layout>

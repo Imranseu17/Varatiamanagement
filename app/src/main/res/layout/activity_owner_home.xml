@@ -3,7 +3,7 @@
     <data>
         <variable
             name="home"
-            type="com.example.varatiamanagement.activity.HomeActivity" />
+            type="com.example.varatiamanagement.activity.OwnerHomeActivity" />
     </data>
 
     <LinearLayout
@@ -15,7 +15,7 @@
         android:background="#FAFAFA"
         android:orientation="vertical"
         android:id="@+id/layout_main"
-        tools:context=".activity.HomeActivity">
+        tools:context=".activity.OwnerHomeActivity">
 
         <ImageView
             android:id="@+id/logoIv"
@@ -33,7 +33,7 @@
 
 
         <LinearLayout
-            android:id="@+id/card_inspect"
+            android:id="@+id/cardProperties"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginEnd="24dp"
@@ -71,7 +71,7 @@
                     android:textSize="20sp" />
 
                 <View
-                    android:id="@+id/line_inspect"
+                    android:id="@+id/line_properties"
                     android:layout_width="20dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center_horizontal"
@@ -89,7 +89,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/card_gas"
+            android:id="@+id/cardRents"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginEnd="24dp"
@@ -127,7 +127,7 @@
                     android:textSize="20sp" />
 
                 <View
-                    android:id="@+id/line_gas"
+                    android:id="@+id/line_rents"
                     android:layout_width="20dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center_horizontal"
@@ -147,7 +147,7 @@
 
 
         <LinearLayout
-            android:id="@+id/transaction_history"
+            android:id="@+id/cardTransaction"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginEnd="24dp"

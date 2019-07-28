@@ -8,4 +8,29 @@
     <string name="err_phoneNumber"> Phone Number field is required </string>
     <string name="valid_email"> Write Valid email Address </string>
     <string name="valid_password"> Write valid password </string>
+    <string name="success">Success</string>
+    <string name="help">Help</string>
+    <string name="info">Info</string>
+    <string name="err">Error</string>
+    <string name="warning">Warning</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="err_service_card">It is not Service Card</string>
+    <string name="err_card_read_failed">Card read failed! Please try again</string>
+    <string name="err_card_not_valid">This card is invalid for this operation</string>
+    <string name="info_want_to_logout">Are you sure you want to log out ?</string>
+    <string name="cancel">Cancel</string>
+    <string name="warning_delete_card">Are you sure you want to Delete card?</string>
+    <string name="delete">Delete</string>
+    <string name="no">No</string>
+    <string name="warning_exit_app">Are you sure you want to exit the app</string>
+    <string name="account_no">Prepaid Code</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="confirm_recharge_gas">Are you sure you want to recharge gas?</string>
+    <string name="confirm_refund_gas">Are you sure you want to refund gas?</string>
+    <string name="add_properties"> Add Properties </string>
+    <string name="rents"> Rents </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
