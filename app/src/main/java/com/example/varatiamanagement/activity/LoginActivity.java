@@ -20,6 +20,8 @@ import com.example.varatiamanagement.dao.UserDao;
 import com.example.varatiamanagement.database.UserDatabase;
 import com.example.varatiamanagement.databinding.ActivityLoginBinding;
 import com.example.varatiamanagement.model.User;
+import com.example.varatiamanagement.utils.ChooseAlertDialog;
+import com.example.varatiamanagement.utils.PromptDialog;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -71,9 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                                     activityLoginBinding.inputLayoutPassword.getEditText().getText().toString()
                                             .trim());
                             if(user!=null){
-                                startActivity(new Intent(LoginActivity.this,
-                                        OwnerHomeActivity.class));
-                                finish();
+                                showDialog();
                                 activityLoginBinding.inputLayoutPhone.getEditText().setText("");
                                 activityLoginBinding.inputLayoutPassword.getEditText().setText("");
                             }else{
@@ -117,5 +117,30 @@ public class LoginActivity extends AppCompatActivity {
         }else {
             return false;
         }
+    }
+
+    public void showDialog() {
+        new ChooseAlertDialog(this)
+                .setDialogType(PromptDialog.DIALOG_TYPE_SUCCESS)
+                .setAnimationEnable(true)
+                .setTitleText(R.string.success)
+                .setContentText(" Who are you? ")
+                .setNegativeListener("Tenant", new ChooseAlertDialog.OnNegativeListener() {
+                    @Override
+                    public void onClick(ChooseAlertDialog dialog) {
+                        startActivity(new Intent(LoginActivity.this,TenantHomeActivity.class));
+                        dialog.dismiss();
+                        finish();
+                    }
+                })
+                .setPositiveListener("Owner", new ChooseAlertDialog.OnPositiveListener() {
+                    @Override
+                    public void onClick(ChooseAlertDialog dialog) {
+                        startActivity(new Intent(LoginActivity.this,OwnerHomeActivity.class));
+                        dialog.dismiss();
+                        finish();
+
+                    }
+                }).show();
     }
 }

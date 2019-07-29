@@ -1,5 +1,8 @@
 package com.example.varatiamanagement.enumClass;
 
+
+
+
 public enum Type {
 
     FLAT(1,"FLAT"),

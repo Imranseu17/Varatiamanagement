@@ -4,6 +4,7 @@
     <string name="err_email"> Email field is required </string>
     <string name="err_password"> Password field is required </string>
     <string name="err_address"> Address field is required </string>
+    <string name="err_description"> Description field is required </string>
     <string name="err_nID"> NID field is required </string>
     <string name="err_phoneNumber"> Phone Number field is required </string>
     <string name="valid_email"> Write Valid email Address </string>
