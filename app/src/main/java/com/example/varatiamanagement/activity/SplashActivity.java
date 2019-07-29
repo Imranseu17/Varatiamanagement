@@ -25,7 +25,6 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         activitySplashBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.transition);
