@@ -71,7 +71,7 @@ public class AddProperties extends Fragment {
         progressDialog.setProgress(0);
 
         ownerPropertyDao = Room.databaseBuilder(getContext(),
-                OwnerPropertyDatabase.class, "mi-database.db")
+                OwnerPropertyDatabase.class, "owner-database.db")
                 .allowMainThreadQueries()
                 .build()
                 .getOwnerPropertyDao();
@@ -87,7 +87,7 @@ public class AddProperties extends Fragment {
                         @Override
                         public void run() {
                             OwnerProperty ownerProperty = new OwnerProperty(fragmentAddPropertiesBinding.name.getEditText().getText().
-                                    toString().trim(),Type.valueOf(fragmentAddPropertiesBinding.spinner.getSelectedItem().toString()),
+                                    toString().trim(),fragmentAddPropertiesBinding.spinner.getSelectedItem().toString(),
                                     fragmentAddPropertiesBinding.description.getEditText().
                                             getText().toString().trim(),
                                     fragmentAddPropertiesBinding.address.getEditText().

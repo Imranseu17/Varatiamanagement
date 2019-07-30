@@ -26,8 +26,7 @@ public class OwnerProperty {
     private  String name;
 
     @ColumnInfo(name = "type")
-    @TypeConverters({Converters.class})
-    private Type type;
+    private String type;
 
     @ColumnInfo(name = "description")
     private  String description;
@@ -35,7 +34,7 @@ public class OwnerProperty {
     @ColumnInfo(name = "address")
     private  String address;
 
-    public OwnerProperty(String name, Type type,
+    public OwnerProperty(String name, String type,
                          String description, String address) {
         this.name = name;
         this.type = type;
@@ -67,11 +66,11 @@ public class OwnerProperty {
         this.name = name;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
