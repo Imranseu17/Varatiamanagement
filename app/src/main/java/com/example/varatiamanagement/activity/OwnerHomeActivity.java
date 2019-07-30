@@ -37,7 +37,7 @@ public class OwnerHomeActivity extends AppCompatActivity {
                                 getColor(OwnerHomeActivity.this, R.color.green));
                 ownerHomeBinding.lineRents.
                         setBackgroundColor(ContextCompat.
-                                g.cetColor(OwnerHomeActivity.this, R.color.black_overlay));
+                                getColor(OwnerHomeActivity.this, R.color.black_overlay));
                 ownerHomeBinding.lineTransaction.
                         setBackgroundColor(ContextCompat.
                                 getColor(OwnerHomeActivity.this, R.color.black_overlay));

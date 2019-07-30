@@ -9,10 +9,10 @@ public enum Type {
     OFFICE(5,"OFFICE");
 
 
-    private int code;
-    private String values;
+    public int code;
+    public String values;
 
-    Type(int code, String values) {
+      Type(int code, String values) {
         this.code = code;
         this.values = values;
     }

@@ -3,11 +3,13 @@ package com.example.varatiamanagement.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+
 import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.NonNull;
 
 import com.example.varatiamanagement.enumClass.Type;
 import com.example.varatiamanagement.utils.Constants;
+import com.example.varatiamanagement.utils.Converters;
 
 @Entity(tableName = Constants.ownerPropertyTable)
 public class OwnerProperty {
@@ -23,8 +25,8 @@ public class OwnerProperty {
     @ColumnInfo(name = "name")
     private  String name;
 
-    @TypeConverters(Type.class)
     @ColumnInfo(name = "type")
+    @TypeConverters({Converters.class})
     private Type type;
 
     @ColumnInfo(name = "description")
@@ -33,9 +35,8 @@ public class OwnerProperty {
     @ColumnInfo(name = "address")
     private  String address;
 
-    public OwnerProperty(int ownerId, String name, Type type,
+    public OwnerProperty(String name, Type type,
                          String description, String address) {
-        this.ownerId = ownerId;
         this.name = name;
         this.type = type;
         this.description = description;
