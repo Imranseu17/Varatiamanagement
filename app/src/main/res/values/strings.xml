@@ -7,6 +7,8 @@
     <string name="err_description"> Description field is required </string>
     <string name="err_nID"> NID field is required </string>
     <string name="err_phoneNumber"> Phone Number field is required </string>
+    <string name="err_members"> Members field is required </string>
+    <string name="err_rentAmount"> Rent Amount field is required </string>
     <string name="valid_email"> Write Valid email Address </string>
     <string name="valid_password"> Write valid password </string>
 
