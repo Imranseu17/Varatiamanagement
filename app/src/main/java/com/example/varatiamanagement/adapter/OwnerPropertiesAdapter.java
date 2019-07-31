@@ -3,69 +3,113 @@ package com.example.varatiamanagement.adapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.adapters.AdapterViewBindingAdapter;
 import android.support.annotation.NonNull;
+import android.support.v7.recyclerview.extensions.ListAdapter;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.varatiamanagement.R;
+import com.example.varatiamanagement.callbacks.OnItemClickListener;
 import com.example.varatiamanagement.databinding.OwnerPropertiesitemBinding;
 import com.example.varatiamanagement.model.OwnerProperty;
 
 import java.util.ArrayList;
 
 public class OwnerPropertiesAdapter extends
-        RecyclerView.Adapter<OwnerPropertiesAdapter.ViewHolder> {
+        ListAdapter<OwnerProperty, OwnerPropertiesAdapter.OwnerPropertiesHolder> {
 
 
-    ArrayList<OwnerProperty> ownerPropertyArrayList ;
+    private OnItemClickListener listener;
 
-    public OwnerPropertiesAdapter(ArrayList<OwnerProperty> ownerPropertyArrayList) {
-        this.ownerPropertyArrayList = ownerPropertyArrayList;
+    public OwnerPropertiesAdapter() {
+        super(DIFE_CALLBACK);
     }
+
+    public static final DiffUtil.ItemCallback<OwnerProperty> DIFE_CALLBACK =
+            new DiffUtil.ItemCallback<OwnerProperty>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull OwnerProperty oldNoteItem,
+                                       @NonNull OwnerProperty newNoteItem) {
+            return oldNoteItem.getId() == newNoteItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull OwnerProperty oldPropertiesItem,
+                                          @NonNull OwnerProperty newPropertiesItem) {
+            return oldPropertiesItem.getName().equals(newPropertiesItem.getName())
+                    && oldPropertiesItem.getType().equals(newPropertiesItem.getType())
+                    && oldPropertiesItem.getAddress().equals(newPropertiesItem.getAddress())
+                    && oldPropertiesItem.getDescription().equals(newPropertiesItem.getDescription());
+        }
+    };
 
 
     @NonNull
     @Override
-    public OwnerPropertiesAdapter.ViewHolder onCreateViewHolder
-            (@NonNull ViewGroup viewGroup, int i) {
-        OwnerPropertiesitemBinding binding = DataBindingUtil.inflate(
-                LayoutInflater.from(viewGroup.getContext()),
-                R.layout.owner_propertiesitem, viewGroup, false);
+    public OwnerPropertiesAdapter.OwnerPropertiesHolder
+    onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        OwnerPropertiesitemBinding itemView = DataBindingUtil.
+                inflate(LayoutInflater.from(viewGroup.getContext()),
+                        R.layout.owner_propertiesitem,viewGroup,false);
 
-        return new ViewHolder(binding);
+
+        return new OwnerPropertiesHolder(itemView);
     }
+
+
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        OwnerProperty current = ownerPropertyArrayList.get(i);
-        viewHolder.ownerPropertiesitemBinding.name.setText("Name: "+current.getName());
-        viewHolder.ownerPropertiesitemBinding.address.
-                setText("Address: "+current.getAddress());
-        viewHolder.ownerPropertiesitemBinding.description.
-                setText("Description: "+current.getAddress());
-        viewHolder.ownerPropertiesitemBinding.type.
-                setText("Type: "+current.getType());
+    public void onBindViewHolder(@NonNull OwnerPropertiesHolder ownerPropertiesHolder, int i) {
+
+        OwnerProperty ownerProperty = getItem(i);
+        ownerPropertiesHolder.ownerPropertiesitemBinding.name.
+                setText("Name:      "+ownerProperty.getName());
+        ownerPropertiesHolder.ownerPropertiesitemBinding.type.
+                setText("Type:     "+ ownerProperty.getType());
+        ownerPropertiesHolder.ownerPropertiesitemBinding.address.
+                setText("Address:    "+ownerProperty.getAddress());
+        ownerPropertiesHolder.ownerPropertiesitemBinding.description.
+                setText("Description: "+ownerProperty.getDescription());
 
     }
 
-    @Override
-    public int getItemCount() {
-        if(ownerPropertyArrayList.isEmpty())
-            return 0;
-        else
-            return ownerPropertyArrayList.size();
+
+
+    public OwnerProperty getOwnerPropertyAt(int position){
+
+        return getItem(position);
     }
 
-    public class  ViewHolder extends RecyclerView.ViewHolder{
-
+    class OwnerPropertiesHolder extends RecyclerView.ViewHolder{
 
         OwnerPropertiesitemBinding ownerPropertiesitemBinding;
 
-        public ViewHolder(OwnerPropertiesitemBinding ownerPropertiesitemBinding) {
-            super(ownerPropertiesitemBinding.getRoot());
-            this.ownerPropertiesitemBinding = ownerPropertiesitemBinding;
+        public OwnerPropertiesHolder
+                (OwnerPropertiesitemBinding propertiesitemBinding) {
+            super(propertiesitemBinding.getRoot());
+            ownerPropertiesitemBinding = propertiesitemBinding;
+
+            ownerPropertiesitemBinding.getRoot().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    int position = getAdapterPosition();
+                    if(listener != null && position != RecyclerView.NO_POSITION)
+                    {
+                        listener.onItemClick(getItem(position));
+                    }
+
+                }
+            });
         }
     }
 
+    public void setOnItemClickListener(OnItemClickListener listener){
+
+        this.listener = listener;
+
+    }
 
 }

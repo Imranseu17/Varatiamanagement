@@ -42,7 +42,7 @@ public class TenantHomeActivity extends AppCompatActivity {
                         setBackgroundColor(ContextCompat.
                                 getColor(TenantHomeActivity.this, R.color.black_overlay));
 
-                startActivity(new Intent(TenantHomeActivity.this,MyPropertiesActivity.class));
+                startActivity(new Intent(TenantHomeActivity.this, PropertiesActivity.class));
 
             }
         });
@@ -60,7 +60,7 @@ public class TenantHomeActivity extends AppCompatActivity {
                         setBackgroundColor(ContextCompat.
                                 getColor(TenantHomeActivity.this, R.color.black_overlay));
 
-                startActivity(new Intent(TenantHomeActivity.this,RentsActivity.class));
+                startActivity(new Intent(TenantHomeActivity.this, RentsActivity.class));
 
             }
         });
@@ -78,7 +78,7 @@ public class TenantHomeActivity extends AppCompatActivity {
                         setBackgroundColor(ContextCompat.
                                 getColor(TenantHomeActivity.this, R.color.green));
 
-                startActivity(new Intent(TenantHomeActivity.this,TransactionActivity.class));
+                startActivity(new Intent(TenantHomeActivity.this, TransactionActivity.class));
 
             }
         });

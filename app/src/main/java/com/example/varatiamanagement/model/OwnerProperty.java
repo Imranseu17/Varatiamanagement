@@ -16,10 +16,10 @@ public class OwnerProperty {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "ownerProperty_id")
     private int id;
 
-    @ColumnInfo(name = "ownerProperty_id")
+    @ColumnInfo(name = "owner_id")
     private  int ownerId;
 
     @ColumnInfo(name = "name")

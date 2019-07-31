@@ -9,30 +9,31 @@ import android.view.MenuItem;
 
 import com.example.varatiamanagement.R;
 import com.example.varatiamanagement.adapter.ViewPagerAdapter;
-import com.example.varatiamanagement.databinding.ActivityMyPropertiesBinding;
+import com.example.varatiamanagement.databinding.ActivityPropertiesBinding;
+import com.example.varatiamanagement.fragments.AddOwnerProperties;
 import com.example.varatiamanagement.fragments.AddProperties;
+import com.example.varatiamanagement.fragments.OwnerRents;
 import com.example.varatiamanagement.fragments.Rents;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MyPropertiesActivity extends AppCompatActivity {
+public class PropertiesActivity extends AppCompatActivity {
 
-    ActivityMyPropertiesBinding activityMyPropertiesBinding;
+    ActivityPropertiesBinding propertiesBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      activityMyPropertiesBinding = DataBindingUtil.
-              setContentView(this,R.layout.activity_my_properties);
-
-        setSupportActionBar(activityMyPropertiesBinding.toolbar);
+       propertiesBinding = DataBindingUtil.setContentView(this,
+               R.layout.activity_properties);
+        setSupportActionBar(propertiesBinding.toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("My Properties");
+        getSupportActionBar().setTitle("Properties");
 
-        setupViewPager(activityMyPropertiesBinding.viewpager);
-        activityMyPropertiesBinding.tabs.setupWithViewPager(activityMyPropertiesBinding.viewpager);
+        setupViewPager(propertiesBinding.viewpager);
+        propertiesBinding.tabs.setupWithViewPager(propertiesBinding.viewpager);
     }
 
     private void setupViewPager(ViewPager viewPager) {

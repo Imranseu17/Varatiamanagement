@@ -9,19 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.TenantHomeActivity"></activity>
+        <activity android:name=".activity.TransactionActivity"></activity>
+        <activity android:name=".activity.RentsActivity" />
+        <activity android:name=".activity.PropertiesActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTheme"/>
+        <activity android:name=".activity.EditOwnerPropertiesActivity" />
+        <activity android:name=".activity.TenantHomeActivity" />
         <activity
-            android:name=".activity.TransactionActivity"
+            android:name=".activity.OwnerTransactionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".activity.RentsActivity"
+            android:name=".activity.OwnerRentsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".activity.MyPropertiesActivity"
+            android:name=".activity.OwnerPropertiesActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/NoTheme" />

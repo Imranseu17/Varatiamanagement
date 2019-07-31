@@ -42,7 +42,7 @@ public class OwnerHomeActivity extends AppCompatActivity {
                         setBackgroundColor(ContextCompat.
                                 getColor(OwnerHomeActivity.this, R.color.black_overlay));
 
-                startActivity(new Intent(OwnerHomeActivity.this,MyPropertiesActivity.class));
+                startActivity(new Intent(OwnerHomeActivity.this, OwnerPropertiesActivity.class));
 
             }
         });
@@ -60,7 +60,7 @@ public class OwnerHomeActivity extends AppCompatActivity {
                         setBackgroundColor(ContextCompat.
                                 getColor(OwnerHomeActivity.this, R.color.black_overlay));
 
-                startActivity(new Intent(OwnerHomeActivity.this,RentsActivity.class));
+                startActivity(new Intent(OwnerHomeActivity.this, OwnerRentsActivity.class));
 
             }
         });
@@ -78,7 +78,7 @@ public class OwnerHomeActivity extends AppCompatActivity {
                         setBackgroundColor(ContextCompat.
                                 getColor(OwnerHomeActivity.this, R.color.green));
 
-                startActivity(new Intent(OwnerHomeActivity.this,TransactionActivity.class));
+                startActivity(new Intent(OwnerHomeActivity.this, OwnerTransactionActivity.class));
 
             }
         });

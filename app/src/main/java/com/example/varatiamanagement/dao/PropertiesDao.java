@@ -7,23 +7,22 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.example.varatiamanagement.model.OwnerProperty;
+
+import com.example.varatiamanagement.model.Properties;
 
 import java.util.List;
-
-
 @Dao
-public interface OwnerPropertyDao {
+public interface PropertiesDao {
 
-    @Query("SELECT * FROM ownerProperty_table")
-    LiveData<List<OwnerProperty>>  getAllOwnerProperties();
+    @Query("SELECT * FROM properties_table")
+    LiveData<List<Properties>> getAllProperties();
 
     @Insert
-    void insert(OwnerProperty property);
+    void insert(Properties properties);
 
     @Update
-    void update(OwnerProperty property);
+    void update(Properties properties);
 
     @Delete
-    void delete(OwnerProperty property);
+    void delete(Properties properties);
 }

@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.varatiamanagement.R;
 
-public class RentsActivity extends AppCompatActivity {
+public class OwnerTransactionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rents);
+        setContentView(R.layout.activity_owner_transaction);
     }
 }

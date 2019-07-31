@@ -12,10 +12,7 @@ import com.example.varatiamanagement.enumClass.Status;
 import com.example.varatiamanagement.enumClass.Type;
 import com.example.varatiamanagement.utils.Constants;
 
-@Entity(foreignKeys = @ForeignKey(entity = OwnerProperty.class,
-        parentColumns = "property_id",
-        childColumns = "ownerProperty_id",
-        onDelete = ForeignKey.NO_ACTION), tableName = Constants.propertiesTable)
+@Entity(tableName = Constants.propertiesTable)
 public class Properties {
 
     @PrimaryKey(autoGenerate = true)
@@ -26,9 +23,9 @@ public class Properties {
     @ColumnInfo(name = "ownerProperty_id")
     private int ownerPropertyID;
 
-    @TypeConverters(Type.class)
+
     @ColumnInfo(name = "type")
-    private Type type;
+    private String type;
 
     @ColumnInfo(name = "description")
     private String description;
@@ -39,29 +36,36 @@ public class Properties {
     @ColumnInfo(name = "address")
     private String address;
 
-    @ColumnInfo(name = "rent_price")
-    private double rentPrice;
+    @ColumnInfo(name = "rent_amount")
+    private double rentAmount;
 
-    @TypeConverters(Status.class)
+
     @ColumnInfo(name = "status")
-    private Status status;
+    private String status;
 
-    @TypeConverters(RentBy.class)
+
     @ColumnInfo(name = "rent_by")
-    private RentBy rentBy;
+    private String rentBy;
 
-    public Properties(int ownerPropertyID, Type type, String description,
-                      String name, String address,
-                      double rentPrice, Status status,
-                      RentBy rentBy) {
+    @ColumnInfo(name = "rent_priceType")
+    private String rentPriceType;
+
+    @ColumnInfo(name = "rent_members")
+    private String rentMembers;
+
+    public Properties(int ownerPropertyID, String type, String description, String name,
+                      String address, double rentAmount,
+                      String status, String rentBy, String rentPriceType, String rentMembers) {
         this.ownerPropertyID = ownerPropertyID;
         this.type = type;
         this.description = description;
         this.name = name;
         this.address = address;
-        this.rentPrice = rentPrice;
+        this.rentAmount = rentAmount;
         this.status = status;
         this.rentBy = rentBy;
+        this.rentPriceType = rentPriceType;
+        this.rentMembers = rentMembers;
     }
 
     public int getProperty_id() {
@@ -80,11 +84,11 @@ public class Properties {
         this.ownerPropertyID = ownerPropertyID;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -112,28 +116,44 @@ public class Properties {
         this.address = address;
     }
 
-    public double getRentPrice() {
-        return rentPrice;
+    public double getRentAmount() {
+        return rentAmount;
     }
 
-    public void setRentPrice(double rentPrice) {
-        this.rentPrice = rentPrice;
+    public void setRentAmount(double rentAmount) {
+        this.rentAmount = rentAmount;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public RentBy getRentBy() {
+    public String getRentBy() {
         return rentBy;
     }
 
-    public void setRentBy(RentBy rentBy) {
+    public void setRentBy(String rentBy) {
         this.rentBy = rentBy;
+    }
+
+    public String getRentPriceType() {
+        return rentPriceType;
+    }
+
+    public void setRentPriceType(String rentPriceType) {
+        this.rentPriceType = rentPriceType;
+    }
+
+    public String getRentMembers() {
+        return rentMembers;
+    }
+
+    public void setRentMembers(String rentMembers) {
+        this.rentMembers = rentMembers;
     }
 
     @Override
@@ -141,13 +161,15 @@ public class Properties {
         return "Properties{" +
                 "property_id=" + property_id +
                 ", ownerPropertyID=" + ownerPropertyID +
-                ", type=" + type +
+                ", type='" + type + '\'' +
                 ", description='" + description + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", rentPrice=" + rentPrice +
-                ", status=" + status +
-                ", rentBy=" + rentBy +
+                ", rentAmount=" + rentAmount +
+                ", status='" + status + '\'' +
+                ", rentBy='" + rentBy + '\'' +
+                ", rentPriceType='" + rentPriceType + '\'' +
+                ", rentMembers='" + rentMembers + '\'' +
                 '}';
     }
 }

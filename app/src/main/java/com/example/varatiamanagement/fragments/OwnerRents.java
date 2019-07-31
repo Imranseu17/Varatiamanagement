@@ -1,7 +1,6 @@
 package com.example.varatiamanagement.fragments;
 
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,18 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.varatiamanagement.R;
-import com.example.varatiamanagement.databinding.FragmentAddPropertiesBinding;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddProperties extends Fragment {
-
-   FragmentAddPropertiesBinding fragmentAddPropertiesBinding;
+public class OwnerRents extends Fragment {
 
 
-    public AddProperties() {
+    public OwnerRents() {
         // Required empty public constructor
     }
 
@@ -28,13 +23,8 @@ public class AddProperties extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        fragmentAddPropertiesBinding = DataBindingUtil.
-                inflate(inflater,R.layout.fragment_add_properties,
-                        container,false);
-        View view = fragmentAddPropertiesBinding.getRoot();
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_owner_rents, container, false);
     }
 
 }
