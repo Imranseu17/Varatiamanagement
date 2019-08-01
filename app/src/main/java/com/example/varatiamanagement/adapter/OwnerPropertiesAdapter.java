@@ -1,7 +1,6 @@
 package com.example.varatiamanagement.adapter;
 
 import android.databinding.DataBindingUtil;
-import android.databinding.adapters.AdapterViewBindingAdapter;
 import android.support.annotation.NonNull;
 import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.util.DiffUtil;
@@ -11,17 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.varatiamanagement.R;
-import com.example.varatiamanagement.callbacks.OnItemClickListener;
+import com.example.varatiamanagement.callbacks.OnOwnerItemClickListener;
 import com.example.varatiamanagement.databinding.OwnerPropertiesitemBinding;
 import com.example.varatiamanagement.model.OwnerProperty;
-
-import java.util.ArrayList;
 
 public class OwnerPropertiesAdapter extends
         ListAdapter<OwnerProperty, OwnerPropertiesAdapter.OwnerPropertiesHolder> {
 
 
-    private OnItemClickListener listener;
+    private OnOwnerItemClickListener listener;
 
     public OwnerPropertiesAdapter() {
         super(DIFE_CALLBACK);
@@ -106,7 +103,7 @@ public class OwnerPropertiesAdapter extends
         }
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(OnOwnerItemClickListener listener){
 
         this.listener = listener;
 

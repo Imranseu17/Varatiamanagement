@@ -2,14 +2,9 @@ package com.example.varatiamanagement.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.NonNull;
 
-import com.example.varatiamanagement.enumClass.RentBy;
-import com.example.varatiamanagement.enumClass.Status;
-import com.example.varatiamanagement.enumClass.Type;
 import com.example.varatiamanagement.utils.Constants;
 
 @Entity(tableName = Constants.propertiesTable)
@@ -17,8 +12,8 @@ public class Properties {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    @ColumnInfo(name = "property_id")
-    private int property_id;
+    @ColumnInfo(name = "propertyId")
+    private int propertyId;
 
     @ColumnInfo(name = "ownerProperty_id")
     private int ownerPropertyID;
@@ -68,12 +63,12 @@ public class Properties {
         this.rentMembers = rentMembers;
     }
 
-    public int getProperty_id() {
-        return property_id;
+    public int getPropertyId() {
+        return propertyId;
     }
 
-    public void setProperty_id(int property_id) {
-        this.property_id = property_id;
+    public void setPropertyId(int propertyId) {
+        this.propertyId = propertyId;
     }
 
     public int getOwnerPropertyID() {
@@ -159,7 +154,7 @@ public class Properties {
     @Override
     public String toString() {
         return "Properties{" +
-                "property_id=" + property_id +
+                "propertyId=" + propertyId +
                 ", ownerPropertyID=" + ownerPropertyID +
                 ", type='" + type + '\'' +
                 ", description='" + description + '\'' +

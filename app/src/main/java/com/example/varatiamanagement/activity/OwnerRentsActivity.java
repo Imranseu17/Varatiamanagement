@@ -18,9 +18,10 @@ import android.widget.Toast;
 
 import com.example.varatiamanagement.R;
 import com.example.varatiamanagement.adapter.OwnerPropertiesAdapter;
-import com.example.varatiamanagement.callbacks.OnItemClickListener;
-import com.example.varatiamanagement.databinding.ActivityRentsBinding;
+import com.example.varatiamanagement.callbacks.OnOwnerItemClickListener;
+import com.example.varatiamanagement.databinding.ActivityOwnerRentsBinding;
 import com.example.varatiamanagement.model.OwnerProperty;
+import com.example.varatiamanagement.utils.SharedDataSaveLoad;
 import com.example.varatiamanagement.viewModel.OwnerPropertyViewModel;
 
 import java.util.List;
@@ -34,12 +35,12 @@ public class OwnerRentsActivity extends AppCompatActivity {
 
     public static final int EDIT_NOTE_REQUEST = 1;
 
-   ActivityRentsBinding activityRentsBinding;
+   ActivityOwnerRentsBinding activityOwnerRentsBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityRentsBinding = DataBindingUtil.setContentView(OwnerRentsActivity.this,
+        activityOwnerRentsBinding = DataBindingUtil.setContentView(OwnerRentsActivity.this,
                 R.layout.activity_owner_rents);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -47,11 +48,11 @@ public class OwnerRentsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Owner Properties List");
 
 
-        activityRentsBinding. recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       activityRentsBinding. recyclerView.setHasFixedSize(true);
+        activityOwnerRentsBinding. recyclerView.setLayoutManager(new LinearLayoutManager(this));
+       activityOwnerRentsBinding. recyclerView.setHasFixedSize(true);
 
         final OwnerPropertiesAdapter propertiesAdapter = new OwnerPropertiesAdapter();
-        activityRentsBinding. recyclerView.setAdapter(propertiesAdapter);
+        activityOwnerRentsBinding. recyclerView.setAdapter(propertiesAdapter);
 
         ownerPropertyViewModel = ViewModelProviders.of(this).get(OwnerPropertyViewModel.class);
         ownerPropertyViewModel.getListLiveData().observe(this,
@@ -76,12 +77,12 @@ public class OwnerRentsActivity extends AppCompatActivity {
 
                 ownerPropertyViewModel.delete(propertiesAdapter.getOwnerPropertyAt
                         (viewHolder.getAdapterPosition()));
-                Toast.makeText( OwnerRentsActivity.this,"Note Deleted",Toast.LENGTH_SHORT).show();
+                Toast.makeText( OwnerRentsActivity.this,"Deleted",Toast.LENGTH_SHORT).show();
 
             }
-        }).attachToRecyclerView(activityRentsBinding. recyclerView);
+        }).attachToRecyclerView(activityOwnerRentsBinding. recyclerView);
 
-        propertiesAdapter.setOnItemClickListener(new OnItemClickListener() {
+        propertiesAdapter.setOnItemClickListener(new OnOwnerItemClickListener() {
             @Override
             public void onItemClick(OwnerProperty ownerProperty) {
                 Intent intent = new Intent(OwnerRentsActivity.this,
@@ -126,7 +127,7 @@ public class OwnerRentsActivity extends AppCompatActivity {
             int id = data.getIntExtra(EditOwnerPropertiesActivity.ID, -1);
 
             if (id == -1) {
-                Toast.makeText(this, "Note can't be updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "can't be updated", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -140,11 +141,11 @@ public class OwnerRentsActivity extends AppCompatActivity {
             ownerProperty.setId(id);
             ownerPropertyViewModel.update(ownerProperty);
 
-            Toast.makeText(this, "Note updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
         }
 
         else
-            Toast.makeText(this," Note not updated ",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"not updated ",Toast.LENGTH_SHORT).show();
     }
 
 

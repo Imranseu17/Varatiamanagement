@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.TransactionActivity"></activity>
+        <activity android:name=".activity.EditPropertiesActivity"></activity>
+        <activity android:name=".activity.TransactionActivity" />
         <activity android:name=".activity.RentsActivity" />
-        <activity android:name=".activity.PropertiesActivity"
+        <activity
+            android:name=".activity.PropertiesActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/NoTheme"/>
+            android:theme="@style/NoTheme" />
         <activity android:name=".activity.EditOwnerPropertiesActivity" />
         <activity android:name=".activity.TenantHomeActivity" />
         <activity

@@ -28,6 +28,7 @@ import com.example.varatiamanagement.enumClass.Status;
 import com.example.varatiamanagement.enumClass.Type;
 import com.example.varatiamanagement.model.OwnerProperty;
 import com.example.varatiamanagement.model.Properties;
+import com.example.varatiamanagement.utils.SharedDataSaveLoad;
 
 
 /**
@@ -60,9 +61,12 @@ public class AddProperties extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        Integer[] numberOfOwnerProperty = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
         fragmentAddPropertiesBinding.numberOfOwnerProperty.
-                setAdapter(new ArrayAdapter<Type>(getActivity(),
-                android.R.layout.simple_spinner_item, Type.values()));
+                setAdapter(new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_item, numberOfOwnerProperty));
         fragmentAddPropertiesBinding.rentPriceType.
                 setAdapter(new ArrayAdapter<RentPriceType>(getActivity(),
                 android.R.layout.simple_spinner_item, RentPriceType.values()));
