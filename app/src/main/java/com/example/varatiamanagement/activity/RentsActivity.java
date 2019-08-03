@@ -156,7 +156,7 @@ public class RentsActivity extends AppCompatActivity {
             String status = data.getStringExtra(EditPropertiesActivity.STATUS);
             String rentBy = data.getStringExtra(EditPropertiesActivity.RENTBY);
             String rentPricetype = data.getStringExtra(EditPropertiesActivity.RENTPRICETYPE);
-            String rentMembers = data.getStringExtra(EditPropertiesActivity.RENTMEMBERS);
+            int rentMembers = data.getIntExtra(EditPropertiesActivity.RENTMEMBERS,0);
 
 
 

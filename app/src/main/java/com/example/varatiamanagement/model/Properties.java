@@ -46,11 +46,11 @@ public class Properties {
     private String rentPriceType;
 
     @ColumnInfo(name = "rent_members")
-    private String rentMembers;
+    private int rentMembers;
 
     public Properties(int ownerPropertyID, String type, String description, String name,
                       String address, double rentAmount,
-                      String status, String rentBy, String rentPriceType, String rentMembers) {
+                      String status, String rentBy, String rentPriceType, int rentMembers) {
         this.ownerPropertyID = ownerPropertyID;
         this.type = type;
         this.description = description;
@@ -143,11 +143,11 @@ public class Properties {
         this.rentPriceType = rentPriceType;
     }
 
-    public String getRentMembers() {
+    public int getRentMembers() {
         return rentMembers;
     }
 
-    public void setRentMembers(String rentMembers) {
+    public void setRentMembers(int rentMembers) {
         this.rentMembers = rentMembers;
     }
 

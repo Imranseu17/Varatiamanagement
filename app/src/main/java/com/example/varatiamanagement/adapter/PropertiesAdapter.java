@@ -44,8 +44,8 @@ public class PropertiesAdapter extends
                             && oldPropertiesItem.getStatus().equals(newPropertiesItem.getStatus())
                             && oldPropertiesItem.getRentBy().equals(newPropertiesItem.getRentBy())
                             && oldPropertiesItem.getRentPriceType().equals(newPropertiesItem
-                            .getRentPriceType()) && oldPropertiesItem.getRentMembers().equals(
-                                    newPropertiesItem.getRentMembers()));
+                            .getRentPriceType()) && oldPropertiesItem.getRentMembers() ==
+                                    newPropertiesItem.getRentMembers());
                 }
             };
 
@@ -75,9 +75,9 @@ public class PropertiesAdapter extends
                 setText("Type:      "+properties.getType());
         propertiesHolder.propetiesitemBinding.description.
                 setText("Description:      "+properties.getDescription());
-        propertiesHolder.propetiesitemBinding.numberOfOwnerProperty.
+        propertiesHolder.propetiesitemBinding.name.
                 setText("Name:      "+properties.getName());
-        propertiesHolder.propetiesitemBinding.numberOfOwnerProperty.
+        propertiesHolder.propetiesitemBinding.address.
                 setText("Address:      "+properties.getAddress());
         propertiesHolder.propetiesitemBinding.rentAmount.
                 setText("RentAmount:      "+properties.getRentAmount());

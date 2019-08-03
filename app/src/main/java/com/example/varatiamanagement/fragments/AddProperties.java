@@ -22,6 +22,7 @@ import com.example.varatiamanagement.dao.PropertiesDao;
 import com.example.varatiamanagement.database.OwnerPropertyDatabase;
 import com.example.varatiamanagement.database.PropertiesDatabase;
 import com.example.varatiamanagement.databinding.FragmentAddPropertiesBinding;
+import com.example.varatiamanagement.databinding.FragmentAddPropertiesBindingImpl;
 import com.example.varatiamanagement.enumClass.RentBy;
 import com.example.varatiamanagement.enumClass.RentPriceType;
 import com.example.varatiamanagement.enumClass.Status;
@@ -119,8 +120,9 @@ public class AddProperties extends Fragment {
                                                     getSelectedItem().toString(),
                                             fragmentAddPropertiesBinding.rentPriceType.
                                                     getSelectedItem().toString(),
-                                            fragmentAddPropertiesBinding.members.
-                                                    getEditText().getText().toString()
+                                            Integer.parseInt(fragmentAddPropertiesBinding.members.
+                                                    getEditText().getText().toString())
+
                                             );
                             propertiesDao.insert(properties);
                             progressDialog.dismiss();
