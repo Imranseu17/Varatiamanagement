@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.varatiamanagement.R;
 import com.example.varatiamanagement.databinding.ActivityEditPropertiesBinding;
+import com.example.varatiamanagement.databinding.ActivityEditPropertiesBindingImpl;
 import com.example.varatiamanagement.enumClass.RentBy;
 import com.example.varatiamanagement.enumClass.RentPriceType;
 import com.example.varatiamanagement.enumClass.Status;
@@ -48,7 +49,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
     public static final String RENTMEMBERS =
             "com.codinginflow.architectureexample.DESCRIPTION";
 
-    ActivityEditPropertiesBinding editPropertiesBinding;
+    ActivityEditPropertiesBindingImpl editPropertiesBinding;
 
 
     @Override
@@ -65,7 +66,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
 
         final ArrayAdapter<Integer> numberOfOwnerPropertyspinner =
                 new ArrayAdapter<>(this,
-                        android.R.layout.simple_spinner_item, numberOfOwnerProperty);
+                        android.R.layout.simple_spinner_item, numberOfOwnerProperty.clone());
         final ArrayAdapter<Type> typespinner =
                 new ArrayAdapter<>(this,
                         android.R.layout.simple_spinner_item, Type.values());
@@ -95,18 +96,19 @@ public class EditPropertiesActivity extends AppCompatActivity {
             editPropertiesBinding.numberOfOwnerProperty.setAdapter(numberOfOwnerPropertyspinner);
             editPropertiesBinding.type.setAdapter(typespinner);
             editPropertiesBinding.description.getEditText().setText
-                    (intent.getStringExtra(DESCRIPTION));
+                    (""+intent.getStringExtra(DESCRIPTION));
             editPropertiesBinding.name.getEditText().setText
                     (intent.getStringExtra(NAME));
-            editPropertiesBinding.address.getEditText().setText
-                    (intent.getStringExtra(ADDRESS));
+            editPropertiesBinding.rentPriceType.setAdapter(rentPriceType);
             editPropertiesBinding.rentAmount.getEditText().setText
                     (""+intent.getDoubleExtra(RENTAMOUNT,0));
             editPropertiesBinding.status.setAdapter(statusSpinner);
             editPropertiesBinding.rentBy.setAdapter(rentBy);
-            editPropertiesBinding.rentPriceType.setAdapter(rentPriceType);
+            editPropertiesBinding.address.getEditText().setText
+                    (""+intent.getStringExtra(ADDRESS));
             editPropertiesBinding.members.getEditText().setText
-                    (intent.getStringExtra(RENTMEMBERS));
+                    (""+intent.getIntExtra(RENTMEMBERS,0));
+
 
         } else {
             setTitle("Save Note");
@@ -115,7 +117,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
 
     private void saveNote(){
 
-        int numberOfOwnerProperty  = editPropertiesBinding.numberOfOwnerProperty.getId();
+        int numberOfOwnerProperty  = Integer.parseInt(editPropertiesBinding.numberOfOwnerProperty.getSelectedItem().toString().trim()) ;
         String type = editPropertiesBinding.type.getSelectedItem()
                 .toString().trim();
         String description = editPropertiesBinding.description.getEditText().
@@ -130,7 +132,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
         String  rentBy = editPropertiesBinding.rentBy.getSelectedItem().toString().trim();
         String  rentPriceType = editPropertiesBinding.rentPriceType.
                 getSelectedItem().toString().trim();
-        double rentMembers = Integer.parseInt(editPropertiesBinding.members.getEditText().
+        int rentMembers =  Integer.parseInt(editPropertiesBinding.members.getEditText().
                 getText().toString().trim()) ;
 
 

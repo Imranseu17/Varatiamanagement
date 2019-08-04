@@ -67,7 +67,7 @@ public class AddProperties extends Fragment {
 
         fragmentAddPropertiesBinding.numberOfOwnerProperty.
                 setAdapter(new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, numberOfOwnerProperty));
+                android.R.layout.simple_spinner_item, numberOfOwnerProperty.clone()));
         fragmentAddPropertiesBinding.rentPriceType.
                 setAdapter(new ArrayAdapter<RentPriceType>(getActivity(),
                 android.R.layout.simple_spinner_item, RentPriceType.values()));
@@ -103,8 +103,8 @@ public class AddProperties extends Fragment {
                         public void run() {
 
                             Properties properties =
-                                    new Properties(fragmentAddPropertiesBinding.numberOfOwnerProperty.
-                                            getId(),fragmentAddPropertiesBinding.type.
+                                    new Properties(Integer.parseInt(fragmentAddPropertiesBinding.numberOfOwnerProperty.
+                                            getSelectedItem().toString().trim()) ,fragmentAddPropertiesBinding.type.
                                             getSelectedItem().toString(),
                                             fragmentAddPropertiesBinding.description.
                                                     getEditText().getText().toString(),
