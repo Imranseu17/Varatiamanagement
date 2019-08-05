@@ -19,6 +19,7 @@ import com.example.varatiamanagement.R;
 import com.example.varatiamanagement.adapter.PropertiesAdapter;
 import com.example.varatiamanagement.callbacks.OnPropertiesClickListener;
 import com.example.varatiamanagement.databinding.ActivityRentsBinding;
+import com.example.varatiamanagement.databinding.ActivityRentsBindingImpl;
 import com.example.varatiamanagement.model.OwnerProperty;
 import com.example.varatiamanagement.model.Properties;
 import com.example.varatiamanagement.viewModel.PropertiesViewModel;
@@ -29,7 +30,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class RentsActivity extends AppCompatActivity {
 
-    ActivityRentsBinding rentsBinding;
+    ActivityRentsBindingImpl rentsBinding;
     private PropertiesViewModel propertiesViewModel;
 
     public static final int EDIT_NOTE_REQUEST = 1;

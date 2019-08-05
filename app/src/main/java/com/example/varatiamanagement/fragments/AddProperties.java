@@ -19,17 +19,14 @@ import android.widget.Toast;
 
 import com.example.varatiamanagement.R;
 import com.example.varatiamanagement.dao.PropertiesDao;
-import com.example.varatiamanagement.database.OwnerPropertyDatabase;
 import com.example.varatiamanagement.database.PropertiesDatabase;
 import com.example.varatiamanagement.databinding.FragmentAddPropertiesBinding;
-import com.example.varatiamanagement.databinding.FragmentAddPropertiesBindingImpl;
 import com.example.varatiamanagement.enumClass.RentBy;
 import com.example.varatiamanagement.enumClass.RentPriceType;
 import com.example.varatiamanagement.enumClass.Status;
 import com.example.varatiamanagement.enumClass.Type;
-import com.example.varatiamanagement.model.OwnerProperty;
 import com.example.varatiamanagement.model.Properties;
-import com.example.varatiamanagement.utils.SharedDataSaveLoad;
+
 
 
 /**
@@ -67,7 +64,7 @@ public class AddProperties extends Fragment {
 
         fragmentAddPropertiesBinding.numberOfOwnerProperty.
                 setAdapter(new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, numberOfOwnerProperty));
+                android.R.layout.simple_spinner_item, numberOfOwnerProperty.clone()));
         fragmentAddPropertiesBinding.rentPriceType.
                 setAdapter(new ArrayAdapter<RentPriceType>(getActivity(),
                 android.R.layout.simple_spinner_item, RentPriceType.values()));
@@ -103,6 +100,7 @@ public class AddProperties extends Fragment {
                         public void run() {
 
                             Properties properties =
+
                                     new Properties( ParseInt(fragmentAddPropertiesBinding.numberOfOwnerProperty.
                                             getSelectedItem().toString().trim())
                                             ,fragmentAddPropertiesBinding.type.

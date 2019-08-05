@@ -3,7 +3,6 @@ package com.example.varatiamanagement.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -95,18 +94,19 @@ public class EditPropertiesActivity extends AppCompatActivity {
             editPropertiesBinding.numberOfOwnerProperty.setAdapter(numberOfOwnerPropertyspinner);
             editPropertiesBinding.type.setAdapter(typespinner);
             editPropertiesBinding.description.getEditText().setText
-                    (intent.getStringExtra(DESCRIPTION));
+                    (""+intent.getStringExtra(DESCRIPTION));
             editPropertiesBinding.name.getEditText().setText
                     (intent.getStringExtra(NAME));
-            editPropertiesBinding.address.getEditText().setText
-                    (intent.getStringExtra(ADDRESS));
+            editPropertiesBinding.rentPriceType.setAdapter(rentPriceType);
             editPropertiesBinding.rentAmount.getEditText().setText
                     (""+intent.getDoubleExtra(RENTAMOUNT,0));
             editPropertiesBinding.status.setAdapter(statusSpinner);
             editPropertiesBinding.rentBy.setAdapter(rentBy);
-            editPropertiesBinding.rentPriceType.setAdapter(rentPriceType);
+            editPropertiesBinding.address.getEditText().setText
+                    (""+intent.getStringExtra(ADDRESS));
             editPropertiesBinding.members.getEditText().setText
                     (""+intent.getIntExtra(RENTMEMBERS,0));
+
 
         } else {
             setTitle("Save Note");
@@ -115,7 +115,8 @@ public class EditPropertiesActivity extends AppCompatActivity {
 
     private void saveNote(){
 
-        int numberOfOwnerProperty  = ParseInt(editPropertiesBinding.numberOfOwnerProperty.getSelectedItem().toString().trim()) ;
+
+        int numberOfOwnerProperty  = Integer.parseInt(editPropertiesBinding.numberOfOwnerProperty.getSelectedItem().toString().trim()) ;
         String type = editPropertiesBinding.type.getSelectedItem()
                 .toString().trim();
         String description = editPropertiesBinding.description.getEditText().
@@ -130,7 +131,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
         String  rentBy = editPropertiesBinding.rentBy.getSelectedItem().toString().trim();
         String  rentPriceType = editPropertiesBinding.rentPriceType.
                 getSelectedItem().toString().trim();
-        int rentMembers = ParseInt(editPropertiesBinding.members.getEditText().
+        int rentMembers =  Integer.parseInt(editPropertiesBinding.members.getEditText().
                 getText().toString().trim()) ;
 
 
