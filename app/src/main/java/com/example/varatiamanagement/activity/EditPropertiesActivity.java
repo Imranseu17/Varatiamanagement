@@ -24,29 +24,29 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class EditPropertiesActivity extends AppCompatActivity {
 
     public static final String ID =
-            "com.codinginflow.architectureexample.ID";
+            "com.example.varatiamanagement.ID";
 
     public static final String OWNERPROPERTYID =
-            "com.codinginflow.architectureexample.OWNERPROPERTYID";
+            "com.example.varatiamanagement.OWNERPROPERTYID";
     public static final String TYPE =
-            "com.codinginflow.architectureexample.TYPE";
+            "com.example.varatiamanagement.TYPE";
     public static final String DESCRIPTION =
-            "com.codinginflow.architectureexample.DESCRIPTION";
+            "com.example.varatiamanagement.DESCRIPTION";
     public static final String NAME =
-            "com.codinginflow.architectureexample.NAME";
+            "com.example.varatiamanagement.NAME";
     public static final String ADDRESS =
-            "com.codinginflow.architectureexample.ADDRESS";
+            "com.example.varatiamanagement.ADDRESS";
 
     public static final String RENTAMOUNT =
-            "com.codinginflow.architectureexample.RENTAMOUNT";
+            "com.example.varatiamanagement.RENTAMOUNT";
     public static final String STATUS =
-            "com.codinginflow.architectureexample.STATUS";
+            "com.example.varatiamanagement.STATUS";
     public static final String RENTBY =
-            "com.codinginflow.architectureexample.RENTBY";
+            "com.example.varatiamanagement.RENTBY";
     public static final String RENTPRICETYPE =
-            "com.codinginflow.architectureexample.ADDRESS";
+            "com.example.varatiamanagement.ADDRESS";
     public static final String RENTMEMBERS =
-            "com.codinginflow.architectureexample.DESCRIPTION";
+            "com.example.varatiamanagement.DESCRIPTION";
 
     ActivityEditPropertiesBinding editPropertiesBinding;
 
@@ -58,14 +58,14 @@ public class EditPropertiesActivity extends AppCompatActivity {
                 (EditPropertiesActivity.this,R.layout.activity_edit_properties);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Edit Owner Properties");
+        getSupportActionBar().setTitle("Edit  Properties");
 
-        Intent intent = getIntent();
+        Intent intent = this.getIntent();
         Integer[] numberOfOwnerProperty = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         final ArrayAdapter<Integer> numberOfOwnerPropertyspinner =
                 new ArrayAdapter<>(this,
-                        android.R.layout.simple_spinner_item, numberOfOwnerProperty);
+                        android.R.layout.simple_spinner_item, numberOfOwnerProperty.clone());
         final ArrayAdapter<Type> typespinner =
                 new ArrayAdapter<>(this,
                         android.R.layout.simple_spinner_item, Type.values());
@@ -106,7 +106,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
             editPropertiesBinding.rentBy.setAdapter(rentBy);
             editPropertiesBinding.rentPriceType.setAdapter(rentPriceType);
             editPropertiesBinding.members.getEditText().setText
-                    (intent.getStringExtra(RENTMEMBERS));
+                    (""+intent.getIntExtra(RENTMEMBERS,0));
 
         } else {
             setTitle("Save Note");
@@ -115,7 +115,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
 
     private void saveNote(){
 
-        int numberOfOwnerProperty  = editPropertiesBinding.numberOfOwnerProperty.getId();
+        int numberOfOwnerProperty  = ParseInt(editPropertiesBinding.numberOfOwnerProperty.getSelectedItem().toString().trim()) ;
         String type = editPropertiesBinding.type.getSelectedItem()
                 .toString().trim();
         String description = editPropertiesBinding.description.getEditText().
@@ -130,7 +130,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
         String  rentBy = editPropertiesBinding.rentBy.getSelectedItem().toString().trim();
         String  rentPriceType = editPropertiesBinding.rentPriceType.
                 getSelectedItem().toString().trim();
-        double rentMembers = Integer.parseInt(editPropertiesBinding.members.getEditText().
+        int rentMembers = ParseInt(editPropertiesBinding.members.getEditText().
                 getText().toString().trim()) ;
 
 
@@ -138,7 +138,7 @@ public class EditPropertiesActivity extends AppCompatActivity {
         if((numberOfOwnerProperty == 0) || type.isEmpty() || description.isEmpty()
                ||name.isEmpty() || address.isEmpty() || (rentAmount == 0)|| status.isEmpty()
                 || rentBy.isEmpty() || rentPriceType.isEmpty() || (rentMembers == 0)){
-            Toast.makeText(this," Please insert a title and description",
+            Toast.makeText(this," Please insert all field of the page",
                     Toast.LENGTH_SHORT).show();
             return;
         }
@@ -162,6 +162,17 @@ public class EditPropertiesActivity extends AppCompatActivity {
 
         setResult(RESULT_OK,data);
         finish();
+    }
+
+   int ParseInt(String strNumber) {
+        if (strNumber != null && strNumber.length() > 0) {
+            try {
+                return Integer.parseInt(strNumber);
+            } catch(Exception e) {
+                return -1;   // or some value to mark this field is wrong. or make a function validates field first ...
+            }
+        }
+        else return 0;
     }
 
     @Override

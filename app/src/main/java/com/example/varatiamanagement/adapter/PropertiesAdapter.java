@@ -37,7 +37,8 @@ public class PropertiesAdapter extends
                                                   @NonNull Properties newPropertiesItem) {
                     return (oldPropertiesItem.getOwnerPropertyID() == newPropertiesItem.getOwnerPropertyID()
                             && oldPropertiesItem.getType().equals(newPropertiesItem.getType())
-                            && oldPropertiesItem.getDescription().equals(newPropertiesItem.getDescription())
+                            && (oldPropertiesItem.getDescription() != null &&
+                            oldPropertiesItem.getDescription().equalsIgnoreCase(newPropertiesItem.getDescription()))
                             && oldPropertiesItem.getName().equals(newPropertiesItem.getName())
                             && oldPropertiesItem.getAddress().equals(newPropertiesItem.getAddress())
                             && oldPropertiesItem.getRentAmount() == newPropertiesItem.getRentAmount()

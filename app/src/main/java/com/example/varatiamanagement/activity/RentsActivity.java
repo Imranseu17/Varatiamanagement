@@ -132,7 +132,7 @@ public class RentsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
 
@@ -147,7 +147,7 @@ public class RentsActivity extends AppCompatActivity {
 
 
             int ownerproperty_id = data.getIntExtra(EditPropertiesActivity.OWNERPROPERTYID,0) ;
-            String type = data.getStringExtra(EditPropertiesActivity.TYPE);
+            String type = data.getStringExtra(""+EditPropertiesActivity.TYPE);
             String description = data.getStringExtra(EditPropertiesActivity.DESCRIPTION);
             String name = data.getStringExtra(EditPropertiesActivity.NAME);
             String address = data.getStringExtra(EditPropertiesActivity.ADDRESS);
@@ -161,7 +161,7 @@ public class RentsActivity extends AppCompatActivity {
 
 
             Properties properties = new Properties(ownerproperty_id,type,description,name,address
-                                            ,rent_amount,status,rentBy,rentPricetype,rentMembers);
+                    ,rent_amount,status,rentBy,rentPricetype,rentMembers);
             properties.setPropertyId(id);
             propertiesViewModel.update(properties);
 

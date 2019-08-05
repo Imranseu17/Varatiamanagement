@@ -103,11 +103,12 @@ public class AddProperties extends Fragment {
                         public void run() {
 
                             Properties properties =
-                                    new Properties(fragmentAddPropertiesBinding.numberOfOwnerProperty.
-                                            getId(),fragmentAddPropertiesBinding.type.
-                                            getSelectedItem().toString(),
+                                    new Properties( ParseInt(fragmentAddPropertiesBinding.numberOfOwnerProperty.
+                                            getSelectedItem().toString().trim())
+                                            ,fragmentAddPropertiesBinding.type.
+                                            getSelectedItem().toString().trim(),
                                             fragmentAddPropertiesBinding.description.
-                                                    getEditText().getText().toString(),
+                                                    getEditText().getText().toString().trim(),
                                             fragmentAddPropertiesBinding.name.getEditText().
                                                     getText().toString(),
                                             fragmentAddPropertiesBinding.address.
@@ -140,6 +141,17 @@ public class AddProperties extends Fragment {
                 }
             }
         });
+    }
+
+    int ParseInt(String strNumber) {
+        if (strNumber != null && strNumber.length() > 0) {
+            try {
+                return Integer.parseInt(strNumber);
+            } catch(Exception e) {
+                return -1;   // or some value to mark this field is wrong. or make a function validates field first ...
+            }
+        }
+        else return 0;
     }
 
     private boolean isEmpty() {
